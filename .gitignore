@@ -36,7 +36,7 @@ prisma/migrations/dev.db*
 
 # Local data
 .local/
-storage/
+/storage/
 
 # Cache
 .eslintcache

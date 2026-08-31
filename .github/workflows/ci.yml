@@ -34,13 +34,6 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Debug
-        run: |
-          node --version
-          pnpm exec tsc --version
-          pnpm exec tsc --showConfig | head -30
-          ls -la src/infra/storage/
-
       - name: Lint
         run: pnpm lint
 
