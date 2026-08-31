@@ -36,7 +36,7 @@ prisma/migrations/dev.db*
 
 # Local data
 .local/
-storage/
+/storage/
 
 # Cache
 .eslintcache
@@ -49,4 +49,4 @@ next-env.d.ts
 # Backups / secrets — must NEVER end up in repo
 *.pem
 *.key
-secrets/
+secrets/dump.rdb
