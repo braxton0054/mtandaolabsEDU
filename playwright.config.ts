@@ -17,7 +17,7 @@ export default defineConfig({
     { name: "mobile", use: { ...devices["Pixel 5"] } },
   ],
   webServer: {
-    command: "pnpm dev",
+    command: process.env.CI ? "pnpm start" : "pnpm dev",
     url: process.env.APP_URL ?? "http://localhost:3000",
     reuseExistingServer: !process.env.CI,
     timeout: 120_000,
