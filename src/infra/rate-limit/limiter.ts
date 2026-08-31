@@ -1,6 +1,6 @@
 import type { NextRequest, NextResponse } from "next/server";
 import { getRedis } from "@infra/redis/client";
-import { env, isTest } from "@config/index";
+import { env } from "@config/index";
 import { RateLimitedError } from "@api/errors/types";
 
 export interface RateLimitOptions {
@@ -25,7 +25,6 @@ export interface RateLimitResult {
  * changing the public API.
  */
 export async function rateLimit(opts: RateLimitOptions): Promise<RateLimitResult> {
-  if (isTest) return { allowed: true, remaining: opts.max, resetSec: opts.windowSec };
   const r = getRedis();
   const fullKey = `ratelimit:${opts.key}`;
   const count = await r.incr(fullKey);
