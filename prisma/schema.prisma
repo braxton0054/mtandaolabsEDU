@@ -1,0 +1,27 @@
+// mtandaolabsEDU — Prisma schema
+// Phase 1 keeps the schema minimal: a tiny `HealthCheck` table proves migrations,
+// connectivity and pooling. School-management tables come in later phases.
+//
+// Multi-tenant ready: every business table (added later) MUST include a
+// `tenantId` column enforced at the application layer (no school data yet).
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider          = "postgresql"
+  url               = env("DATABASE_URL")
+  directUrl         = env("DATABASE_DIRECT_URL")
+  shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
+}
+
+/// Lightweight probe row written by the integration test to prove
+/// migrations + connection pooling actually round-trip.
+model HealthCheck {
+  id        String   @id @default(cuid())
+  label     String
+  createdAt DateTime @default(now())
+
+  @@map("health_checks")
+}
