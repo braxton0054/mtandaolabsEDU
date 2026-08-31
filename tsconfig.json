@@ -1,7 +1,11 @@
 {
   "compilerOptions": {
     "target": "ES2022",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": false,
     "skipLibCheck": true,
     "strict": true,
@@ -12,26 +16,54 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "incremental": true,
-    "plugins": [{ "name": "next" }],
+    "incremental": false,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"],
-      "@web/*": ["src/web/*"],
-      "@api/*": ["src/api/*"],
-      "@db/*": ["src/db/*"],
-      "@shared/*": ["src/shared/*"],
-      "@lib/*": ["src/lib/*"],
-      "@config/*": ["src/config/*"],
-      "@infra/*": ["src/infra/*"]
+      "@/*": [
+        "src/*"
+      ],
+      "@web/*": [
+        "src/web/*"
+      ],
+      "@api/*": [
+        "src/api/*"
+      ],
+      "@db/*": [
+        "src/db/*"
+      ],
+      "@shared/*": [
+        "src/shared/*"
+      ],
+      "@lib/*": [
+        "src/lib/*"
+      ],
+      "@config/*": [
+        "src/config/*"
+      ],
+      "@infra/*": [
+        "src/infra/*"
+      ]
     },
-    "types": ["node"]
+    "types": [
+      "node"
+    ],
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
   },
   "include": [
-    "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
+    "next-env.d.ts",
     ".next/types/**/*.ts"
   ],
-  "exclude": ["node_modules", ".next", "out", "playwright-report", "test-results"]
+  "exclude": [
+    "node_modules",
+    ".next",
+    "out",
+    "playwright-report",
+    "test-results"
+  ]
 }
