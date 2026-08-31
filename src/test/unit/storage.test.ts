@@ -3,6 +3,7 @@ import { mkdtempSync, rmSync, existsSync, readFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { LocalStorage } from "@infra/storage/local";
+import type { StorageObject } from "@infra/storage/types";
 
 describe("LocalStorage", () => {
   const dir = mkdtempSync(join(tmpdir(), "mlabs-storage-"));
@@ -19,7 +20,7 @@ describe("LocalStorage", () => {
 
   it("list returns stored keys", async () => {
     const list = await store.list("hello");
-    expect(list.find((o) => o.key === "hello/world.txt")).toBeTruthy();
+    expect(list.find((o: StorageObject) => o.key === "hello/world.txt")).toBeTruthy();
   });
 
   it("refuses path-traversal keys", async () => {
